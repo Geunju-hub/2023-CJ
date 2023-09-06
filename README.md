@@ -11,6 +11,8 @@
 
 #### 참가 과제
 ### 물류 센터의 출고 검수 시간 단축을 위해 비전을 활용한 스마트 검수 알고리즘 개발
+![overview](https://github.com/Geunju-hub/2023-CJ/assets/68331871/d6b164bd-cb9f-4dcd-9691-c64e5cb0cf77)
+
 
 #### 팀명
 Outlier
