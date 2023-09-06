@@ -56,12 +56,12 @@ Object Detection 모델을 이용하여 정확한 검출을 통해 검수 시간
     1. Pre-Train Detector(Detic) 모델을 통해 개별 Instance Detection
     2. Detection Box Crop
     3. DINOv2 모델을 통해 개별 Instance에 대한 Train Label 학습
-       * Train 이미지 간 바라보는 View의 차이가 매우 심함
-         → CrossEntropy Loss 대신
+       * Train 이미지 간 바라보는 View의 차이가 매우 심함  
+         → CrossEntropy Loss 대신  
          → "ArcFace Loss" 기반 유사도 학습  
     4. Train Data를 통해 추출된 Embedding Vector DB 생성
     5. Embedding Vector DB 기반으로 Inference 시 KNN으로 Class 예측
-    6. 음료수의 경우 묶음 단위로 예측을 해야 함
+    6. 음료수의 경우 묶음 단위로 예측을 해야 함  
        → Instance를 Grouping 하는 Post-processing 진행
 
 #### 결론
@@ -70,11 +70,11 @@ Object Detection 모델을 이용하여 정확한 검출을 통해 검수 시간
 ```
 
 #### 필요한 개선 사항
-1. 1차 평가 시 39 / 53 (73%)의 매우 준수한 성능을 보여줬으나
-  Iou > 0.5 기준이 적용되고 나서 26 / 53 (49%)의 낮은 성능이 되었음
-  → Post-processing의 빈약함을 보여줌
+1. 1차 평가 시 39 / 53 (73%)의 매우 준수한 성능을 보여줬으나  
+  Iou > 0.5 기준이 적용되고 나서 26 / 53 (49%)의 낮은 성능이 되었음  
+  → Post-processing의 빈약함을 보여줌  
   → Post-processing 고도화 필요 (Wegithed Boxes Fusion)
-2. False Positive (모델은 객체가 있다고 판단한 지점이 Training data가 아닐 때)가 많음
+2. False Positive (모델은 객체가 있다고 판단한 지점이 Training data가 아닐 때)가 많음  
    → 이는 추후 Unsupervised Anomaly Detection 기법인 Isolation Forest 등 모델 활용
-3. 모델이 상당히 무거움(Inference Time : 15s(average))
+3. 모델이 상당히 무거움(Inference Time : 15s(average))  
    → DINOv2 distillation을 통해 성능은 유지되면서, 파라미터 수를 줄이는 기법 제안
