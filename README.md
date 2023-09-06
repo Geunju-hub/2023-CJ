@@ -61,8 +61,9 @@ Object Detection 모델을 이용하여 정확한 검출을 통해 검수 시간
          → "ArcFace Loss" 기반 유사도 학습  
     4. Train Data를 통해 추출된 Embedding Vector DB 생성
     5. Embedding Vector DB 기반으로 Inference 시 KNN으로 Class 예측
-    6. 음료수의 경우 묶음 단위로 예측을 해야 함  
-       → Instance를 Grouping 하는 Post-processing 진행
+* 필요한 후처리 정의
+  * 음료수의 경우 묶음 단위로 예측을 해야 함  
+    → Instance를 Grouping 하는 Post-processing 진행
 
 #### 결론
 ```
